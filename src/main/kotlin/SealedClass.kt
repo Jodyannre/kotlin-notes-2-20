@@ -15,3 +15,30 @@ class SealedClass {
         Staff.Worker -> println("Worker is fixing the projector for profs in CS, all respect to him.")
     }
 }
+
+
+/* example
+
+sealed class Resultado {
+    data class Exito(val data: String) : Resultado()
+    data class Error(val mensaje: String) : Resultado()
+    object Cargando : Resultado()
+}
+
+fun procesarResultado(resultado: Resultado) {
+    when (resultado) {
+        is Resultado.Exito -> println("Éxito: ${resultado.data}")
+        is Resultado.Error -> println("Error: ${resultado.mensaje}")
+        Resultado.Cargando -> println("Cargando...")
+    }
+}
+
+
+fun main() {
+    val result = Resultado.Exito("La petición fue exitosa.")
+
+    procesarResultado(result)
+
+}
+
+ */
