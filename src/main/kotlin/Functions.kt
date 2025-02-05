@@ -152,3 +152,21 @@ fun printTree(node: TreeNode, level: Int = 0) {
  */
 
 
+/* Advanced lambdas */
+
+fun placeArgument(value: Int, f: (Int, Int) -> Int): (Int) -> Int {
+    return { i -> f(value, i) }
+}
+fun sum(a: Int, b: Int): Int = a + b
+val mul3 = { a: Int, b: Int -> a * b }
+
+
+val increment = placeArgument(1, ::sum)
+val triple = placeArgument(3, mul3)
+
+fun main3() {
+    println(increment(4))   // 5
+    println(increment(40))  // 41
+    println(triple(4))      // 12
+    println(triple(40))     // 120
+}
